@@ -1,8 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
+type Trend = {
+  title: string;
+  date: string;
+  google_interest: number;
+  reddit_upvotes: number;
+};
+
 export default function TrendForgeDashboard() {
-  const [trends, setTrends] = useState([]);
+  const [trends, setTrends] = useState<Trend[]>([]);
 
   useEffect(() => {
     fetch('https://trendforge-api.onrender.com/top-trends')
