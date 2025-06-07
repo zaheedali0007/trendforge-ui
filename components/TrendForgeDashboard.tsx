@@ -23,7 +23,14 @@ export default function TrendForgeDashboard() {
       <div className="grid md:grid-cols-2 gap-6">
         {trends.map((trend, i) => (
           <div key={i} className="border p-4 rounded-xl shadow">
-            <h2 className="text-xl font-semibold">{trend.title}</h2>
+            <a
+              href={`https://www.google.com/search?q=${encodeURIComponent(trend.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold text-blue-600 hover:underline block"
+            >
+              {trend.title}
+            </a>
             <p className="text-sm text-gray-600">{trend.date}</p>
             <p className="text-sm">Google Interest: {trend.google_interest}</p>
             <p className="text-sm">Reddit Upvotes: {trend.reddit_upvotes}</p>
